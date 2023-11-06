@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using MMABooksEFClasses.MarisModels;
 
 namespace MMABooksEFClasses.Models;
 
 public partial class Product
 {
-    public string ProductCode { get; set; } = null!;
+    public Product()
+    {
+        Invoicelineitems = new HashSet<Invoicelineitems>();
+    }
 
-    public string Description { get; set; } = null!;
-
+    public string ProductCode { get; set; }
+    public string Description { get; set; }
     public decimal UnitPrice { get; set; }
-
     public int OnHandQuantity { get; set; }
 
-    public virtual ICollection<Invoicelineitem> Invoicelineitems { get; set; } = new List<Invoicelineitem>();
+    public virtual ICollection<Invoicelineitems> Invoicelineitems { get; set; }
 }

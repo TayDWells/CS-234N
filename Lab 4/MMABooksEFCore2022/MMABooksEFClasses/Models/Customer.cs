@@ -5,19 +5,23 @@ namespace MMABooksEFClasses.Models;
 
 public partial class Customer
 {
+    public Customer()
+    {
+        Invoices = new HashSet<Invoices>();
+    }
+
     public int CustomerId { get; set; }
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public string City { get; set; }
+    public string StateCode { get; set; }
+    public string ZipCode { get; set; }
 
-    public string Name { get; set; } = null!;
+    public override string ToString()
+    {
+        return CustomerId + ", " + Name + ", " + Address + ", " + City + ", " + StateCode + ", " + ZipCode;
+    }
 
-    public string Address { get; set; } = null!;
-
-    public string City { get; set; } = null!;
-
-    public string State { get; set; } = null!;
-
-    public string ZipCode { get; set; } = null!;
-
-    public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
-
-    public virtual State StateNavigation { get; set; } = null!;
+    public virtual State State { get; set; }
+    public virtual ICollection<Invoices> Invoices { get; set; }
 }

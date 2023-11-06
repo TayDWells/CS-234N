@@ -46,7 +46,7 @@ namespace MMABooksTests
         {
             // get a list of all of the customers who live in OR
 
-            customers = dbContext.Customers.Where(c => c.State.StartsWith("OR")).OrderBy(c => c.Name).ToList();
+            customers = dbContext.Customers.Where(c => c.StateCode.StartsWith("OR")).OrderBy(c => c.Name).ToList();
             Assert.AreEqual(5, customers.Count);
             Assert.AreEqual(12, customers[0].CustomerId);
             PrintAll(customers);
@@ -100,11 +100,11 @@ namespace MMABooksTests
             c.Name = "Wilkins, Adria";
             c.Address = "488 Maple";
             c.City = "Fresno";
-            c.State = "CA";
+            c.StateCode = "CA";
             c.ZipCode = "92707";
             dbContext.Customers.Add(c);
             dbContext.SaveChanges();
-            Assert.IsNotNull(dbContext.Customers.Find(700));
+            Assert.IsNotNull(dbContext.Customers.Find(699));
         }
 
         [Test]

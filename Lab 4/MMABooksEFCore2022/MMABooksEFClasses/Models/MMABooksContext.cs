@@ -17,9 +17,9 @@ public partial class MMABooksContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<Invoices> Invoices { get; set; }
 
-    public virtual DbSet<Invoicelineitem> Invoicelineitems { get; set; }
+    public virtual DbSet<Invoicelineitems> Invoicelineitems { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
 
@@ -61,13 +61,13 @@ public partial class MMABooksContext : DbContext
                 .HasMaxLength(15)
                 .IsFixedLength();
 
-            entity.HasOne(d => d.StateNavigation).WithMany(p => p.Customers)
+            entity.HasOne(d => d.State).WithMany(p => p.Customers)
                 .HasForeignKey(d => d.State)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Customers_States");
         });
 
-        modelBuilder.Entity<Invoice>(entity =>
+        modelBuilder.Entity<Invoices>(entity =>
         {
             entity.HasKey(e => e.InvoiceId).HasName("PRIMARY");
 
@@ -88,7 +88,7 @@ public partial class MMABooksContext : DbContext
                 .HasConstraintName("FK_Invoices_Customers");
         });
 
-        modelBuilder.Entity<Invoicelineitem>(entity =>
+        modelBuilder.Entity<Invoicelineitems>(entity =>
         {
             entity.HasKey(e => new { e.InvoiceId, e.ProductCode })
                 .HasName("PRIMARY")
