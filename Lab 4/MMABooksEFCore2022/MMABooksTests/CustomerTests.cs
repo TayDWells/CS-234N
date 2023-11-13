@@ -48,7 +48,7 @@ namespace MMABooksTests
 
             customers = dbContext.Customers.Where(c => c.StateCode.StartsWith("OR")).OrderBy(c => c.Name).ToList();
             Assert.AreEqual(5, customers.Count);
-            Assert.AreEqual(12, customers[0].CustomerId);
+            Assert.AreEqual(144, customers[0].CustomerId);
             PrintAll(customers);
 
 

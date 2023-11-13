@@ -132,7 +132,7 @@ public partial class MMABooksContext : DbContext
         {
             entity.HasKey(e => e.StateCode).HasName("PRIMARY");
 
-            entity.ToTable("states");
+            entity.ToTable("products");
 
             entity.Property(e => e.StateCode)
                 .HasMaxLength(2)

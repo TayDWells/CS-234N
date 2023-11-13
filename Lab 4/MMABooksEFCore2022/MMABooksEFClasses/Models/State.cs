@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MMABooksEFClasses.Models;
-
-public partial class State
+namespace MMABooksEFClasses.Models
 {
-    public State()
+    public partial class State
     {
-        Customers = new HashSet<Customer>();
-    }
+        public State()
+        {
+            Customers = new HashSet<Customer>();
+        }
 
-    public string StateCode { get; set; }
-    public string StateName { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
 
-    public override string ToString()
-    {
-        return StateCode + ", " + StateName;
-    }
+        public override string ToString()
+        {
+            return StateCode + ", " + StateName;
+        }
 
-    public bool StartsWith(string v)
-    {
-        throw new NotImplementedException();
-    }
+        public bool StartsWith(string v)
+        {
+            throw new NotImplementedException();
+        }
 
-    public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
 
-    public static implicit operator State(string v)
-    {
-        throw new NotImplementedException();
+        public static implicit operator State(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

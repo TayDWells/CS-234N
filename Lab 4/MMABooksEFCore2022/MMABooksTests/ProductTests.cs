@@ -3,7 +3,7 @@ using System.Linq;
 using System;
 
 using NUnit.Framework;
-using MMABooksEFClasses.Models;
+using MMABooksEFClasses.MarisModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace MMABooksTests
@@ -11,7 +11,7 @@ namespace MMABooksTests
     [TestFixture]
     public class ProductTests
     {
-        
+
         MMABooksContext dbContext;
         Product? p;
         List<Product>? products;
@@ -30,6 +30,7 @@ namespace MMABooksTests
             Assert.AreEqual(16, products.Count);
             Assert.AreEqual("A4CS", products[0].ProductCode);
             PrintAll(products);
+            //Console.WriteLine("Ran a test");
         }
 
 
@@ -47,8 +48,8 @@ namespace MMABooksTests
         public void GetUsingWhere()
         {
             // get a list of all of the products that have a unit price of 56.50
-            products = dbContext.Products.Where(p => p.UnitPrice == 56.60).ToList();
-            Assert.AreEqual(7, products.OnHandQuantity);
+            products = dbContext.Products.Where(p => p.UnitPrice == 56.50m).ToList();
+            Assert.AreEqual(4637, products[0].OnHandQuantity);
             Assert.AreEqual("A4CS", products[0].ProductCode);
             PrintAll(products);
 
@@ -85,7 +86,7 @@ namespace MMABooksTests
             p = new Product();
             p.ProductCode = "A4CS";
             p.Description = "Murach's ASP.NET 4 Web Programming with C# 2010";
-            p.UnitPrice = 56.500;
+            p.UnitPrice = 56.500m;
             p.OnHandQuantity = 4637;
             dbContext.Products.Add(p);
             dbContext.SaveChanges();
