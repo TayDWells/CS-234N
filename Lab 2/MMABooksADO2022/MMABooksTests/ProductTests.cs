@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using MMABooksBusinessClasses;
 
 namespace MMABooksTests
@@ -18,7 +14,7 @@ namespace MMABooksTests
         public void SetUp()
         {
             def = new Product();
-            c = new Product(123, "Test Product", 10.0f, 50);
+            c = new Product("QWER", "Test Product", 10.0f, 50);
             product = new Product();
         }
 
@@ -26,13 +22,13 @@ namespace MMABooksTests
         public void TestConstructor()
         {
             Assert.IsNotNull(def);
-            Assert.AreEqual(0, def.ProductCode);
+            Assert.AreEqual(null, def.ProductCode);
             Assert.AreEqual(null, def.Description);
             Assert.AreEqual(0.0f, def.UnitPrice);
             Assert.AreEqual(0, def.OnHandQuantity);
 
             Assert.IsNotNull(c);
-            Assert.AreEqual(123, c.ProductCode);
+            Assert.AreEqual("QWER", c.ProductCode);
             Assert.AreEqual("Test Product", c.Description);
             Assert.AreEqual(10.0f, c.UnitPrice);
             Assert.AreEqual(50, c.OnHandQuantity);
@@ -42,8 +38,8 @@ namespace MMABooksTests
         public void ProductCodeSetterShouldSetValidValue()
         {
             var product = new Product();
-            product.ProductCode = 123;
-            Assert.AreEqual(123, product.ProductCode);
+            product.ProductCode = "123";
+            Assert.AreEqual("123", product.ProductCode);
         }
 
         [Test]
@@ -69,7 +65,5 @@ namespace MMABooksTests
             product.OnHandQuantity = 50;
             Assert.AreEqual(50, product.OnHandQuantity);
         }
-
-
     }
 }

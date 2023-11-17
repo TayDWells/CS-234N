@@ -8,7 +8,7 @@ namespace MMABooksBusinessClasses
     {
         public Product() { }
 
-        public Product(int code, string description, float price, int quantity)
+        public Product(string code, string description, float price, int quantity)
         {
             ProductCode = code;
             Description = description;
@@ -16,12 +16,12 @@ namespace MMABooksBusinessClasses
             OnHandQuantity = quantity;
         }
 
-        private int productCode;
+        private string productCode;
         private string description;
         private float unitPrice;
         private int onHandQuantity;
 
-        public int ProductCode
+        public string ProductCode
         {
             get
             {
@@ -30,10 +30,10 @@ namespace MMABooksBusinessClasses
 
             set
             {
-                if (value > 0)
+                if (!string.IsNullOrEmpty(value))
                     productCode = value;
                 else
-                    throw new ArgumentOutOfRangeException("Product Code must be a positive integer");
+                    throw new ArgumentException("Product Code cannot be null or empty");
             }
         }
 
@@ -46,7 +46,7 @@ namespace MMABooksBusinessClasses
 
             set
             {
-                if (value.Trim().Length > 0 && value.Trim().Length <= 100)
+                if (!string.IsNullOrWhiteSpace(value) && value.Length <= 100)
                     description = value;
                 else
                     throw new ArgumentOutOfRangeException("Description must be at least one character and no more than 100 characters");

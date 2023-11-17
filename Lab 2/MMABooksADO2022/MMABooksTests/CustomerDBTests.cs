@@ -15,8 +15,8 @@ namespace MMABooksTests
         [Test]
         public void TestGetCustomer()
         {
-            Customer c = CustomerDB.GetCustomer(1);
-            Assert.AreEqual(1, c.CustomerID);
+            Customer c = CustomerDB.GetCustomer(2);
+            Assert.AreEqual(2, c.CustomerID);
         }
 
         [Test]
@@ -40,7 +40,7 @@ namespace MMABooksTests
             // Arrange: Create a customer to be deleted
             Customer d = new Customer
             {
-                CustomerID = 702,  // Set this to the customer's ID you want to delete
+                CustomerID = 751,  // Set this to the customer's ID you want to delete
                 Name = "Mickey Mouse",
                 Address = "101 Main Street",
                 City = "Orlando",
@@ -66,17 +66,17 @@ namespace MMABooksTests
             // Arrange: Create an old customer and a new customer with changes
             Customer oldCustomer = new Customer
             {
-                CustomerID = 701, // Set this to the actual CustomerID to update
-                Name = "Mickey Mouse",
-                Address = "101 Main Street",
-                City = "Orlando",
-                State = "FL",
-                ZipCode = "10101"
+                CustomerID = 750, // Set this to the actual CustomerID to update
+                Name = "Updated test",
+                Address = "Street",
+                City = "Place",
+                State = "OR",
+                ZipCode = "35216-6909"
             };
 
             Customer newCustomer = new Customer
             {
-                CustomerID = 701, // Set this to the same CustomerID
+                CustomerID = 750, // Set this to the same CustomerID
                 Name = "Mickey Mouse",
                 Address = "123 Main Street",
                 City = "Orlando",
