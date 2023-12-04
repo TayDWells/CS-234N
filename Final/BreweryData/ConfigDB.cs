@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.Configuration;
 
+
 /*
  * dotnet tool install --global dotnet-ef
  * Use nuget package manager to install efcore, efcore.analyzers, design, tools and mysql.data.efcore
@@ -10,7 +11,7 @@ using Microsoft.Extensions.Configuration;
  *        
  *      Scaffold-DbContext "server=127.0.0.1;uid=root;pwd=YOURPASSWORD;database=MMABooks" MySql.Data.EntityFrameworkCore -OutputDir Models -context MMABooksContext -project MMABooksEFClasses -startupproject MMABooksEFClasses -force
  */
-namespace EFCore
+namespace BreweryData
 {
     public class ConfigDB
     {

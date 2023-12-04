@@ -1,5 +1,5 @@
 {
-  "ConnectionStrings": {
-    "mySql": "server=127.0.0.1;uid=root;pwd=RedPenguinCup5009;database=bits"
-  }
+    "ConnectionStrings": {
+        "mySql": "server=127.0.0.1;uid=root;pwd=RedPenguinCup5009;database=bits"
+    }
 }
