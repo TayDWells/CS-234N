@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main-content {
+  flex: 1;
+  text-align: center;
+}
+
+.brewery-header {
+  background-color: #8B4513;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo-container {
+  max-width: 200px; 
+  margin: 0 auto; 
+}
+
+.logo-container img {
+  max-width: 100%; 
+}
+
+.brewery-navbar {
+  background-color: #228B22;
+  padding: 10px;
+}
+
+.brewery-navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.brewery-navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.brewery-footer {
+  background-color: #8B4513;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.social-media a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.copyright {
+  margin-top: 10px;
+}
